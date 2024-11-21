@@ -1,5 +1,10 @@
+plugins {
+  id 'com.google.cloud.tools.jib' version '3.3.2'
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'com.google.cloud.tools.jib'
 
 repositories {
     mavenCentral()
@@ -9,7 +14,11 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+}
 
-mainClassName = 'org.eclipse.che.examples.HelloWorld'
+application {
+  mainClassName = 'org.eclipse.che.examples.HelloWorld'
+}
